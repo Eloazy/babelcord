@@ -4,11 +4,13 @@ require('dotenv').config()
 const commands= [
 	{
 		"name": "info",
-		"description": "get inform from BOT"
+		"description": "get inform from BOT",
+		"contexts": [0,1,2]
 	},
 	{
 		"name": "user",
 		"description": "pull data from the User system, using the player ID",
+		"contexts": [0,1,2],
 		"options": [
 			{
 				"name": "profile",
@@ -53,13 +55,14 @@ const commands= [
 			{
 				"name": "revives",
 				"description": "get your revive historic",
-				"type":1
+				"type":1,
 			}
 		]
 	},
 	{
 		"name": "faction",
 		"description": "get Faction Informs from yourself or user",
+		"contexts": [0,1,2],
 		"options": [
 			{
 				"name": "basic",
@@ -69,7 +72,7 @@ const commands= [
 					{
 						"name": "user-id",
 						"description": "input the user ID, stay blank to automaticaly trigger your",
-						"type": 5,
+						"type": 10,
 						"required": false
 					}
 				]
@@ -79,6 +82,7 @@ const commands= [
 	{
 		"name": "company",
 		"description": "get Company Informs from yourself or user",
+		"contexts": [0,1,2],
 		"options": [
 			{
 				"name": "profile",
@@ -88,7 +92,8 @@ const commands= [
 					{
 						"name": "user-id",
 						"description": "input the user ID, stay blank to automaticaly trigger your",
-						"type": 5,
+						"type": 10,
+						
 						"required": false
 					}
 				]
@@ -96,7 +101,7 @@ const commands= [
 			{
 				"name": "detailed",
 				"description": "get profile informs from a company using user ID",
-				"type": 1
+				"type": 1,
 			}
 		]
 	}
@@ -106,7 +111,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.devtoken)
 
 async function reg() {
 	try {
-		if(process.env.devmode == false) {
+		if(process.env.devmode == "false") {
 			await rest.put(Routes.applicationCommands(process.env.botid), { body: commands })
 			console.log('commands registered')
 		}
