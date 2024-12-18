@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js')
-module.exports = async function(data, interaction, ephemeral) {
+module.exports = async function(interaction) {
 	const embed = new EmbedBuilder()	
 		.setColor("#000000")
 		.setTitle('ELO-INFORM')
