@@ -30,5 +30,5 @@ client.on("interactionCreate", async (interaction) => {
 	}
 })
 
-client.login("MTMzMTAwODc2ODEzMzE3MzI5OA.GJMl28.-ES651iebyjhfYaP9H_n2nzS8Q5KuLFYhPZFno")
+client.login(process.env.token)
 //client.login(process.env.token)
