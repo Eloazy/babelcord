@@ -1,6 +1,6 @@
 {
   "name": "Elo_slave",
-  "version": "1.0.0",
+  "version": "3.0.0-B",
   "description": "A discordBot to help Eloazy",
   "main": "index.js",
   "scripts": {
