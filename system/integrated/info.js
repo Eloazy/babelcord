@@ -10,7 +10,7 @@ module.exports = async function(interaction, client) {
 			{ name: 'Version:', value: '3.0.0' },
 			{ name: 'Creator:', value: '<@874115618746552330>', inline: false },
 			{ name: 'Dependencies', value: 'discord.js\ndotenv', inline: false },
-			{ name: 'System:', value: 'private bot, personal use, localHost', inline: false }
+			{ name: 'System:', value: 'private bot, personal use, localHost-autostart', inline: false }
 		)
 		.setTimestamp()
 		.setFooter({ text: 'ELO-SYSTEM | v3' });
