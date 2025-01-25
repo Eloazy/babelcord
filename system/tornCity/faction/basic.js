@@ -20,6 +20,5 @@ function embedCreator(data) {
 			{ name: 'Best chain:', value: `${data.basic.best_chain}`, inline:false}
 		)
 		.setTimestamp()
-		.setFooter({ text: 'Elo\'s Slave 2.0.0'});
 	return embed
 }

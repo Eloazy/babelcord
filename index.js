@@ -1,9 +1,10 @@
-const { Client, GatewayIntentBits, ActivityType } = require('discord.js')
+const { Client, GatewayIntentBits } = require('discord.js')
 const manager = require('./system/manager.js')
 require('dotenv').config()
 
 const client = new Client(
 	{ 
+
 		intents:
 		[
 			GatewayIntentBits.Guilds, 
@@ -14,13 +15,9 @@ const client = new Client(
 	})
 
 client.on("ready", () => {
-	console.log("SlaveBOT started")
+	console.log("Babel started")
 	console.log("by Eloazy [3028393]")
 	console.log("---------------------")
-	client.user.setActivity({
-		name: 'the creator making something',
-		type: ActivityType.Watching
-	})
 })
 
 client.on("interactionCreate", async (interaction) => {
@@ -30,5 +27,5 @@ client.on("interactionCreate", async (interaction) => {
 	}
 })
 
-client.login(process.env.token)
-//client.login(process.env.token)
+if(process.env.devmode == "false" || process.env.devmode == false){client.login(process.env.token)}
+else{client.login(process.env.tokendev).then(() => {console.log('devMode')})}

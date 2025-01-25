@@ -16,6 +16,5 @@ async function embedCreator(money, percent) {
 			{ name: 'profit: ', value: await Math.round(((money*(100+percent))/100)-money).toLocaleString(), inline:false}
 		)
 		.setTimestamp()
-		.setFooter({ text: 'Elo\'s Slave 2.0.0'});
 	return embed
 }

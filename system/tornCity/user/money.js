@@ -20,6 +20,5 @@ function embedCreator(data) {
 			{ name: 'Networth:', value: `${data.daily_networth}`, inline:false}
 		)
 		.setTimestamp()
-		.setFooter({ text: 'Elo\'s Slave 2.0.0'});
 	return embed
 }

@@ -15,6 +15,5 @@ function embedCreator(data) {
 			{ name: 'Revived: ', value: Object.keys(data.revives).length+' revived (sucess and fail)', inline:true}
 		)
 		.setTimestamp()
-		.setFooter({ text: 'Elo\'s Slave 2.0.0' });
 	return embed;
 }

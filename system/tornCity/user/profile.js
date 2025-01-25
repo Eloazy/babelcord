@@ -21,7 +21,6 @@ async function embedCreator(data) {
 			{ name: 'Job', value: 'Name: '+data.job.company_name+'\nPosition: '+data.job.position, inline: true },
 		)
 		.setTimestamp()
-		.setFooter({ text: 'Elo\'s Slave 2.0.0' });
 	return embed
 
 	function status(data) {

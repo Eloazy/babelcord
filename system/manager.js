@@ -11,11 +11,25 @@ const t_revives = require('./tornCity/user/revive.js')
 const f_basic = require('./tornCity/faction/basic.js')
 //useful
 const us_investment = require('./tornCity/useful/investment.js')
+//spotfy
+const s_info = require('./spotify/info.js')
+const s_search = require('./spotify/search.js')
+//babelaife
+const b_info = require('./babelaife/info.js')
+const b_babelaife = require('./babelaife/babelaife.js').default
 
 module.exports = function(interaction, client) {
 	if(interaction.commandName === "integrated") {
 		if(interaction.options._subcommand === "info") {info(interaction, client)}
 		if(interaction.options._subcommand === "random") {random(interaction, interaction.options.getNumber('max') ?? 2)}
+	}
+	if(interaction.commandName === "spotify") {
+		if(interaction.options._subcommand === "info") {s_info(interaction)}
+		if(interaction.options._subcommand === "search") {s_search(interaction, interaction.options.getString('query'))}
+	}
+	if(interaction.commandName === "babelaife") {
+		if(interaction.options._subcommand === "info") {b_info(interaction)}
+		if(interaction.options._subcommand === "chat") {b_babelaife(interaction, interaction.options.getString('query'))}
 	}
 	if(interaction.commandName === "torncity") {
 		if(interaction.options._subcommand === "info") {t_info(interaction)}
