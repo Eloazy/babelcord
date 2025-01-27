@@ -6,7 +6,7 @@ const model = genAI.getGenerativeModel({
 	systemInstruction: {
 		parts: [
 			{text: 'you name is Babel'},
-			{text: 'The response text must not exceed 4000 characters'},
+			{text: 'The response text must not exceed 2000 characters'},
 		]
 	},
 	generationConfig: {
@@ -16,8 +16,19 @@ const model = genAI.getGenerativeModel({
 	}
 });
 
+let chat = model.startChat({
+	history: []
+})
+
+function resetChatHistory() {chat = model.startChat({ history: [] })}
+
 export default async function(interaction, query) {
-	interaction.deferReply()
+	await interaction.deferReply()
+	if(query.toLowerCase() === "clean_historic") {
+		resetChatHistory()
+		return interaction.editReply("clean historic")
+	}
+	const result = await chat.sendMessage(query);
 	var time = new Date().getTime();
 
 	await model.generateContent({
@@ -25,26 +36,23 @@ export default async function(interaction, query) {
 		safetySettings: [ 
 		    {
 		        category: "HARM_CATEGORY_HARASSMENT",
-		        threshold: "BLOCK_LOW_AND_ABOVE"
+		        threshold: "BLOCK_NONE"
 		    },
 		    {
 		        category: "HARM_CATEGORY_HATE_SPEECH",
-		        threshold: "BLOCK_LOW_AND_ABOVE"
+		        threshold: "BLOCK_NONE"
 		    },
 		    {
 		        category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-		        threshold: "BLOCK_LOW_AND_ABOVE"
+		        threshold: "BLOCK_NONE"
 		    },
 		    {
 		        category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-		        threshold: "BLOCK_LOW_AND_ABOVE"
+		        threshold: "BLOCK_NONE"
 		    }
 	    ]
-	}).then((result) => {
+	}).then((res) => {
 		time = new Date().getTime() - time
 		interaction.editReply('> '+query+'\n'+result.response.text()+`\n-# Reply in ${time} milliseconds`)
 	})
-		
-	
-	
 }
