@@ -1,6 +1,7 @@
-const { Client, GatewayIntentBits } = require('discord.js')
-const manager = require('./system/manager.js')
-require('dotenv').config()
+import { Client, GatewayIntentBits } from 'discord.js'
+import manager from './system/manager.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const client = new Client(
 	{ 
