@@ -3,17 +3,7 @@ import manager from './system/manager.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const client = new Client(
-	{ 
-
-		intents:
-		[
-			GatewayIntentBits.Guilds, 
-			GatewayIntentBits.GuildMembers, 
-			GatewayIntentBits.GuildMessages, 
-			GatewayIntentBits.MessageContent
-		] 
-	})
+const client = new Client({intents: [GatewayIntentBits.MessageContent]})
 
 client.on("ready", () => {
 	console.log("Babel started")
