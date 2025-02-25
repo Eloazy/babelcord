@@ -7,7 +7,7 @@ const client = new Client({intents: [GatewayIntentBits.MessageContent]})
 
 client.on("ready", () => {
 	console.log("Babel started")
-	console.log("by Eloazy [3028393]")
+	console.log("by Babel systems")
 	console.log("---------------------")
 })
 
