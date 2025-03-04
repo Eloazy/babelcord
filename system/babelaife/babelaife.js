@@ -2,7 +2,7 @@ export default async function(interaction, query) {
 	//return interaction.reply('unavaliable | incompatible with BabelServer 2.0')
     await interaction.deferReply()
 	try {
-        const response = await fetch('http://localhost:1025/api/babelaife', {
+        const response = await fetch('http://localhost:1025/api/branch/discord', {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',

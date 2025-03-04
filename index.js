@@ -18,5 +18,4 @@ client.on("interactionCreate", async (interaction) => {
 	}
 })
 
-if(process.env.devmode == "false" || process.env.devmode == false){client.login(process.env.token)}
-else{client.login(process.env.tokendev).then(() => {console.log('devMode')})}
+client.login(process.env.token)
